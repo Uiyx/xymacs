@@ -31,33 +31,36 @@ Reduce the frequency of garbage collection.
 * Evil
 
 #+BEGIN_SRC emacs-lisp
-  (use-package undo-tree
-    :init
-    (global-undo-tree-mode 1))
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode 1))
 
-    (use-package evil
-	:init
-      (setq evil-want-integration t)
-      (setq evil-want-keybinding nil)
-      (setq evil-vsplit-window-right t)
-      (setq evil-split-window-below t)
-      (setq evil-want-C-u-scroll t)
-      (setq evil-respect-visual-line-mode t)
-      (setq evil-undo-system 'undo-tree)
-      (evil-mode))
+  (use-package evil
+      :init
+    (setq evil-want-integration t)
+    (setq evil-want-keybinding nil)
+    (setq evil-vsplit-window-right t)
+    (setq evil-split-window-below t)
+    (setq evil-want-C-u-scroll t)
+    (setq evil-respect-visual-line-mode t)
+    (setq evil-undo-system 'undo-tree)
+    (evil-mode))
 
-      (use-package evil-collection
-       :after evil
-       :config
-  (setq evil-collection-company-use-tng nil)
-  :custom
-  (evil-collection-outline-bind-tab-p nil)
-  :config
-       (setq evil-collection-mode-list '(dashboard dired ibuffer))
-      (evil-collection-init)) 
+    (use-package evil-collection
+     :after evil
+     :config
+(setq evil-collection-company-use-tng nil)
+:custom
+(evil-collection-outline-bind-tab-p nil)
+:config
+     (setq evil-collection-mode-list '(dashboard dired ibuffer elfeed))
+    (evil-collection-init))
 
-       ;; disable evil in specific modes
-    (evil-set-initial-state 'neotree-mode 'emacs)
+     ;; disable evil in specific modes
+  (evil-set-initial-state 'neotree-mode 'emacs)
+;;  (evil-set-initial-state 'elfeed-search-mode 'emacs)
+;;  (evil-set-initial-state 'elfeed-show-mode 'emacs)
+
 #+END_SRC
 
 * Org mode
@@ -420,4 +423,14 @@ General makes it easier to manager keybindings
 *** Language modes
 #+BEGIN_SRC emacs-lisp
 (use-package haskell-mode)
+#+END_SRC
+
+* Non-editor configuration
+** Elfeed
+#+BEGIN_SRC emacs-lisp
+(use-package elfeed)
+(use-package elfeed-org)
+(setq elfeed-feeds
+      '("www.fsf.org/static/fsforg/rss/news.xml"
+        "https://planet.emacslife.com/atom.xml"))
 #+END_SRC
