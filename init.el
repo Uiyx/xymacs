@@ -8,7 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(elfeed-org elfeed dashboard eglot lsp-mode evil-nerd-commenter smooth-scrolling evil-collection evil use-package undo-tree)))
+   '(rainbow-delimiters elfeed-org elfeed dashboard eglot lsp-mode evil-nerd-commenter smooth-scrolling evil-collection evil use-package undo-tree)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

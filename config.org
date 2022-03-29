@@ -53,11 +53,11 @@ Reduce the frequency of garbage collection.
 :custom
 (evil-collection-outline-bind-tab-p nil)
 :config
-     (setq evil-collection-mode-list '(dashboard dired ibuffer elfeed))
+     (setq evil-collection-mode-list '(dashboard dired ibuffer elfeed neotree))
     (evil-collection-init))
 
      ;; disable evil in specific modes
-  (evil-set-initial-state 'neotree-mode 'emacs)
+;;  (evil-set-initial-state 'neotree-mode 'emacs)
 ;;  (evil-set-initial-state 'elfeed-search-mode 'emacs)
 ;;  (evil-set-initial-state 'elfeed-show-mode 'emacs)
 
@@ -211,7 +211,21 @@ Reduce the frequency of garbage collection.
 * Misc options
 Small misc tweaks and options
 
+** Rainbow delimiters
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+#+END_SRC
+
+** Electric-pair-mode
+
+#+BEGIN_SRC
+(electric-pair-mode 1)
+#+END_SRC
+
+
 ** Set coding system to UTF-8
+
 #+BEGIN_SRC emacs-lisp
 (set-default-coding-systems 'utf-8)
 #+END_SRC
