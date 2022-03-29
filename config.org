@@ -180,8 +180,7 @@ Reduce the frequency of garbage collection.
   (setq dashboard-banner-logo-title "Welcome to Xymacs!")
   (setq dashboard-startup-banner "~/.emacs.d/dash.png")
   (setq dashboard-center-content t)
-  (setq dashboard-items '((recents . 3)
-                          (agenda . 5 )
+  (setq dashboard-items '((recents . 5)
                           (bookmarks . 3)))
   (setq dashboard-footer-messages '("Do what thou wilt shall be the whole of the Law"
                                     "There are no rules in love and lisp!"
@@ -280,18 +279,20 @@ Small misc tweaks and options
 General makes it easier to manager keybindings
    
 #+BEGIN_SRC emacs-lisp
-      (use-package general
-    :config
-  (general-evil-setup t))
+    (use-package general
+  :config
+(general-evil-setup t))
 
-  ;; general keybindings
-  (nvmap :prefix "SPC"
-  "d" '(find-file :which-key "Find file")
-  ;; kills 
-  "k b" '(kill-buffer :which-key "Kill buffer")
-  "k c" '(kill-current-buffer :which-key "Kill current buffer")
-  ;; reload
-  "r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config"))
+;; general keybindings
+(nvmap :prefix "SPC"
+"d" '(find-file :which-key "Find file")
+;; kills
+"k b" '(kill-buffer :which-key "Kill buffer")
+"k c" '(kill-current-buffer :which-key "Kill current buffer")
+
+"q" '(delete-frame :which-key "Delete frame")
+;; reload
+"r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config"))
 #+END_SRC
    
 ** Zooming
@@ -374,7 +375,7 @@ General makes it easier to manager keybindings
   (projectile-global-mode 1))
 #+END_SRC
 
-* Completion
+* Languages
 
 ** Corfu
 #+BEGIN_SRC emacs-lisp
