@@ -377,68 +377,6 @@ General makes it easier to manager keybindings
 
 * Languages
 
-** Corfu
-#+BEGIN_SRC emacs-lisp
-(use-package corfu
-  ;; Optional customizations
- :custom
-(corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-(corfu-auto t)                      ;; Enable auto completion
-
-
-  ;; Use TAB for cycling, default is `corfu-complete'.
-  :bind
-  (:map corfu-map
-        ("TAB" . corfu-next)
-        ([tab] . corfu-next)
-        ("S-TAB" . corfu-previous)
-        ([backtab] . corfu-previous))
-
-  ;; Recommended: Enable Corfu globally.
-  ;; This is recommended since dabbrev can be used globally (M-/).
-  :init
-  (corfu-global-mode))
-;; A few more useful configurations...
-(use-package emacs
-  :init
-  ;; TAB cycle if there are only few candidates
-  (setq completion-cycle-threshold 4)
-
-  ;; Emacs 28: Hide commands in M-x which do not apply to the current mode.
-  ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
-  ;; (setq read-extended-command-predicate
-  ;;       #'command-completion-default-include-p)
-
-  ;; Enable indentation+completion using the TAB key.
-  ;; `completion-at-point' is often bound to M-TAB.
-  (setq tab-always-indent 'complete))
-#+END_SRC
-
-** Dabbrev with corfu
-
-#+BEGIN_SRC emacs-lisp
-;; Use dabbrev with Corfu!
-(use-package dabbrev
-  ;; Swap M-/ and C-M-/
-  :bind (("M-/" . dabbrev-completion)
-         ("C-M-/" . dabbrev-expand)))
-#+END_SRC
-
-** Eglot with corfu
-
-#+BEGIN_SRC emacs-lisp
-(use-package eglot
-  :commands (eglot eglot-ensure)
-  :hook ((c-mode . eglot-ensure)
-         (haskell-mode . eglot-ensure)))
-;;  :config
-#+END_SRC
-
-** Language servers
-*** Language modes
-#+BEGIN_SRC emacs-lisp
-(use-package haskell-mode)
-#+END_SRC
 
 * Non-editor configuration
 ** Elfeed
