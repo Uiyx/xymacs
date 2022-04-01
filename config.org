@@ -64,6 +64,8 @@ Reduce the frequency of garbage collection.
 #+END_SRC
 
 * Org mode
+Org-mode configuration.
+
 ** Options
 
 #+BEGIN_SRC emacs-lisp
@@ -89,6 +91,8 @@ Reduce the frequency of garbage collection.
 #+END_SRC
 
 * Looks
+Everything UI.
+
 ** Disable the bars
 
 #+BEGIN_SRC emacs-lisp
@@ -275,6 +279,7 @@ Small misc tweaks and options
 #+END_SRC
 
 * Keybindings
+
 ** General
 General makes it easier to manager keybindings
    
@@ -327,6 +332,7 @@ General makes it easier to manager keybindings
 #+END_SRC
 
 * File management
+
 ** Neotree
 
 #+BEGIN_SRC emacs-lisp
@@ -377,9 +383,73 @@ General makes it easier to manager keybindings
 
 * Languages
 
+** Completion
+
+#+BEGIN_SRC emacs-lisp
+(use-package corfu
+  ;; Optional customizations
+  :custom
+  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+
+  ;; Recommended: Enable Corfu globally.
+  ;; This is recommended since dabbrev can be used globally (M-/).
+  :init
+  (corfu-global-mode))
+
+;; Optionally use the `orderless' completion style. See `+orderless-dispatch'
+;; in the Consult wiki for an advanced Orderless style dispatcher.
+;; Enable `partial-completion' for files to allow path expansion.
+;; You may prefer to use `initials' instead of `partial-completion'.
+(use-package orderless
+  :init
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
+  ;;       orderless-component-separator #'orderless-escapable-split-on-space)
+  (setq completion-styles '(orderless)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
+
+;; A few more useful configurations...
+(use-package emacs
+  :init
+  ;; TAB cycle if there are only few candidates
+  (setq completion-cycle-threshold 5)
+
+  ;; Emacs 28: Hide commands in M-x which do not apply to the current mode.
+  ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
+  ;; (setq read-extended-command-predicate
+  ;;       #'command-completion-default-include-p)
+
+  ;; Enable indentation+completion using the TAB key.
+  ;; `completion-at-point' is often bound to M-TAB.
+  (setq tab-always-indent 'complete))
+#+END_SRC
+
+** Eglot with Corfu
+
+#+BEGIN_SRC emacs-lisp
+(use-package eglot)
+;; specify explicitly to use Orderless for Eglot
+(setq completion-category-overrides '((eglot (styles orderless))))
+
+;; undo the Eglot modification of completion-category-defaults
+(with-eval-after-load 'eglot
+   (setq completion-category-defaults nil))
+
+;; starting elgot with modes
+ (add-hook 'org-mode-hook 'eglot-ensure)
+ (add-hook 'c-mode-hook 'eglot-ensure)
+ (add-hook 'haskell-mode-hook 'eglot-ensure)
+ (add-hook 'lua-mode-hook 'eglot-ensure)
+ (add-hook 'go-mode-hook 'eglot-ensure)
+ (add-hook 'rust-mode-hook 'eglot-ensure)
+#+END_SRC
 
 * Non-editor configuration
+
 ** Elfeed
+
 #+BEGIN_SRC emacs-lisp
 (use-package elfeed)
 (use-package elfeed-org)
@@ -387,3 +457,6 @@ General makes it easier to manager keybindings
       '("www.fsf.org/static/fsforg/rss/news.xml"
         "https://planet.emacslife.com/atom.xml"))
 #+END_SRC
+
+#+RESULTS:
+| www.fsf.org/static/fsforg/rss/news.xml | https://planet.emacslife.com/atom.xml |
