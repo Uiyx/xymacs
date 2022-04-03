@@ -440,6 +440,7 @@ General makes it easier to manager keybindings
 ;; starting elgot with modes
  (add-hook 'org-mode-hook 'eglot-ensure)
  (add-hook 'c-mode-hook 'eglot-ensure)
+ (add-hook 'cc-mode-hook 'eglot-ensure)
  (add-hook 'haskell-mode-hook 'eglot-ensure)
  (add-hook 'lua-mode-hook 'eglot-ensure)
  (add-hook 'go-mode-hook 'eglot-ensure)
