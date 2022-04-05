@@ -125,10 +125,11 @@ Everything UI.
 ** Theme
 
  #+BEGIN_SRC emacs-lisp
-(use-package doom-themes)
-(setq doom-themes-enable-bold t
- doom-themes-enable-italic t)
-(load-theme 'doom-dracula t)
+ (use-package VampyricDark
+   :ensure nil
+   :load-path "~/.emacs.d/VampyricDark-theme.el")
+
+  (load-theme 'VampyricDark t)
  #+END_SRC
 
 ** Fonts
