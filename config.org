@@ -125,7 +125,7 @@ Everything UI.
 ** Theme
 
  #+BEGIN_SRC emacs-lisp
-  (load-theme 'VampyricDark t)
+  (load-theme 'vampyricdark t)
  #+END_SRC
 
 ** Fonts
