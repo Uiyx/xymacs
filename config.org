@@ -12,20 +12,20 @@ Reduce the frequency of garbage collection.
 * Package Management
 
 #+BEGIN_SRC emacs-lisp
-    (require 'package)
+  (require 'package)
 
-    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			     ("melpa-stable" . "https://stable.melpa.org/packages/")
-			     ("org" . "https://orgmode.org/elpa/")
-			     ("elpa" . "https://elpa.gnu.org/packages/")))
-    (package-refresh-contents)
-    (package-initialize)
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			   ("melpa-stable" . "https://stable.melpa.org/packages/")
+			   ("org" . "https://orgmode.org/elpa/")
+			   ("elpa" . "https://elpa.gnu.org/packages/")))
+  (package-refresh-contents)
+  (package-initialize)
 
-    (unless (package-installed-p 'use-package)
-      (package-install 'use-package))
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
 
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 #+END_SRC
 
 * Evil
@@ -125,10 +125,6 @@ Everything UI.
 ** Theme
 
  #+BEGIN_SRC emacs-lisp
- (use-package VampyricDark
-   :ensure nil
-   :load-path "~/.emacs.d/VampyricDark-theme.el")
-
   (load-theme 'VampyricDark t)
  #+END_SRC
 
