@@ -125,6 +125,7 @@ Everything UI.
 ** Theme
 
  #+BEGIN_SRC emacs-lisp
+  (use-package vampyricdark-theme)
   (load-theme 'vampyricdark t)
  #+END_SRC
 
