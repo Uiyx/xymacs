@@ -443,6 +443,11 @@ General makes it easier to manager keybindings
  (add-hook 'lua-mode-hook 'eglot-ensure)
  (add-hook 'go-mode-hook 'eglot-ensure)
  (add-hook 'rust-mode-hook 'eglot-ensure)
+
+ (use-package go-mode)
+ (use-package rust-mode)
+ (use-package haskell-mode)
+ (use-package lua-mode)
 #+END_SRC
 
 * Non-editor configuration
@@ -456,6 +461,3 @@ General makes it easier to manager keybindings
       '("www.fsf.org/static/fsforg/rss/news.xml"
         "https://planet.emacslife.com/atom.xml"))
 #+END_SRC
-
-#+RESULTS:
-| www.fsf.org/static/fsforg/rss/news.xml | https://planet.emacslife.com/atom.xml |
