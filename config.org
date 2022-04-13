@@ -293,6 +293,7 @@ General makes it easier to manager keybindings
 "k b" '(kill-buffer :which-key "Kill buffer")
 "k c" '(kill-current-buffer :which-key "Kill current buffer")
 
+"v" '((lambda () (interactive) (save-buffer) (emacs-everywhere-finish-or-ctrl-c-ctrl-c)) :which-key "Write and finish everywhere")
 "q" '(delete-frame :which-key "Delete frame")
 ;; reload
 "r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config"))
