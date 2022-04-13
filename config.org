@@ -53,7 +53,7 @@ Reduce the frequency of garbage collection.
 :custom
 (evil-collection-outline-bind-tab-p nil)
 :config
-     (setq evil-collection-mode-list '(dashboard dired ibuffer elfeed neotree))
+     (setq evil-collection-mode-list '(dashboard dired ibuffer elfeed neotree vterm))
     (evil-collection-init))
 
      ;; disable evil in specific modes
@@ -460,4 +460,16 @@ General makes it easier to manager keybindings
 (setq elfeed-feeds
       '("www.fsf.org/static/fsforg/rss/news.xml"
         "https://planet.emacslife.com/atom.xml"))
+#+END_SRC
+
+** Vterm
+
+#+BEGIN_SRC emacs-lisp
+(use-package vterm)
+#+END_SRC
+
+** Everywhere
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs-everywhere)
 #+END_SRC
