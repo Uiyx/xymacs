@@ -212,6 +212,11 @@ Everything UI.
 * Misc options
 Small misc tweaks and options
 
+** sudo-edit
+#+BEGIN_SRC emacs-lisp
+(use-package sudo-edit)
+#+END_SRC
+
 ** Rainbow delimiters
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters)
@@ -437,7 +442,6 @@ General makes it easier to manager keybindings
    (setq completion-category-defaults nil))
 
 ;; starting elgot with modes
- (add-hook 'org-mode-hook 'eglot-ensure)
  (add-hook 'c-mode-hook 'eglot-ensure)
  (add-hook 'cc-mode-hook 'eglot-ensure)
  (add-hook 'haskell-mode-hook 'eglot-ensure)
