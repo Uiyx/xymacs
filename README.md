@@ -6,8 +6,8 @@ Learn more by reading my [config.org](./config.org)
 
 Install by running
 
-`git clone https://github.com/VampyricDark/emacs.git ~/.emacs.d/`
+`git clone https://github.com/Uiyx/xymacs ~/.emacs.d/`
 
-After that you can install all-the-icons-fonts. 
+After that you can install all-the-icons-fonts by running 
 `M-x all-the-icons-install-fonts`
 inside emacs.
