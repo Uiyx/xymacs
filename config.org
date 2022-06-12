@@ -451,11 +451,14 @@ General makes it easier to manager keybindings
  (add-hook 'lua-mode-hook 'eglot-ensure)
  (add-hook 'go-mode-hook 'eglot-ensure)
  (add-hook 'rust-mode-hook 'eglot-ensure)
+ (add-hook 'css-mode-hook 'eglot-ensure)
+ (add-hook 'zig-mode-hook 'eglot-ensure)
 
  (use-package go-mode)
  (use-package rust-mode)
  (use-package haskell-mode)
  (use-package lua-mode)
+ (use-package zig-mode)
 #+END_SRC
 
 * Non-editor configuration
