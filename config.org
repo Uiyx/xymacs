@@ -301,10 +301,11 @@ General makes it easier to manager keybindings
 "k b" '(kill-buffer :which-key "Kill buffer")
 "k c" '(kill-current-buffer :which-key "Kill current buffer")
 
-"v" '((lambda () (interactive) (save-buffer) (emacs-everywhere-finish-or-ctrl-c-ctrl-c)) :which-key "Write and finish everywhere")
+;; "v" '((lambda () (interactive) (save-buffer) (emacs-everywhere-finish-or-ctrl-c-ctrl-c)) :which-key "Write and finish everywhere")
 "q" '(delete-frame :which-key "Delete frame")
 ;; reload
-"r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config"))
+"r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config")
+"c c" '(smart-compile :which-key "Smart compile."))
 #+END_SRC
    
 ** Zooming
@@ -459,6 +460,20 @@ General makes it easier to manager keybindings
  (use-package haskell-mode)
  (use-package lua-mode)
  (use-package zig-mode)
+#+END_SRC
+
+** Perl
+#+BEGIN_SRC emacs-lisp
+(defalias 'perl-mode 'cperl-mode)
+(setq cperl-electric-lbrace-space t)
+(setq cperl-electric-parens t)
+(setq cperl- t)
+#+END_SRC
+
+** Smart-Compile
+
+#+BEGIN_SRC emacs-lisp
+(use-package smart-compile)
 #+END_SRC
 
 * Non-editor configuration
