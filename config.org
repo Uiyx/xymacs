@@ -304,7 +304,10 @@ Small misc tweaks and options
 
 "x f" `(org-roam-node-find :which-key "Org-Roam find node")
 "x i" `(org-roam-node-find :which-key "Org-Roam insert node")
-"x b" `(org-roam-buffer-toggle :which-key "Org-Roam buffer toggle node"))
+"x b" `(org-roam-buffer-toggle :which-key "Org-Roam buffer toggle node")
+
+"g c" `(magit-commit :which-key "Magit commit")
+"g p" `(magit-push :which-key "Magit push"))
 #+END_SRC
 
 ** Zooming
