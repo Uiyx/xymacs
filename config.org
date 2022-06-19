@@ -10,7 +10,6 @@ Reduce the frequency of garbage collection.
 #+END_SRC
 
 * Package Management
-
 #+BEGIN_SRC emacs-lisp
   (require 'package)
 
@@ -29,7 +28,6 @@ Reduce the frequency of garbage collection.
 #+END_SRC
 
 * Evil
-
 #+BEGIN_SRC emacs-lisp
 (use-package undo-tree
   :init
@@ -67,7 +65,6 @@ Reduce the frequency of garbage collection.
 Org-mode configuration.
 
 ** Options
-
 #+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook 'org-indent-mode)
 (setq org-directory "~/projects/org/"
@@ -91,7 +88,6 @@ Org-mode configuration.
 #+END_SRC
 
 ** Org-Roam
-
 #+BEGIN_SRC emacs-lisp
 (use-package org-roam
 :custom
@@ -103,7 +99,6 @@ Org-mode configuration.
 Everything UI.
 
 ** Disable the bars
-
 #+BEGIN_SRC emacs-lisp
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -111,13 +106,11 @@ Everything UI.
 #+END_SRC
 
 ** Highlight current line
-
 #+BEGIN_SRC emacs-lisp
 (global-hl-line-mode t)
 #+END_SRC
 
 ** Line numbers
-
 #+BEGIN_SRC emacs-lisp
   ;; set line numbers
   (global-display-line-numbers-mode 1)
@@ -133,14 +126,12 @@ Everything UI.
 #+END_SRC 
 
 ** Theme
-
  #+BEGIN_SRC emacs-lisp
 (use-package catppuccin-theme)
  (load-theme 'catppuccin t)
  #+END_SRC
 
 ** Fonts
- 
 #+BEGIN_SRC emacs-lisp
 	  (set-face-attribute 'default nil
 	    :font "Literation Mono Nerd Font"
@@ -175,14 +166,12 @@ Everything UI.
 #+END_SRC
 
 ** Modeline
-
 #+BEGIN_SRC emacs-lisp
   (use-package doom-modeline)
   (doom-modeline-mode 1)
 #+END_SRC
 
 ** Dashboard
-
 #+BEGIN_SRC emacs-lisp
 (use-package dashboard
   :ensure t
@@ -277,7 +266,6 @@ Small misc tweaks and options
 #+END_SRC
 
 ** Indentation
-
 #+BEGIN_SRC
 (setq-default tab-width 4)
 (setq-default standard-indent 4)
@@ -288,13 +276,11 @@ Small misc tweaks and options
 #+END_SRC
 
 ** Enable prettify symbols
-
 #+BEGIN_SRC emacs-lisp
 (global-prettify-symbols-mode t)
 #+END_SRC
 
 * Keybindings
-
 ** General
 
 #+BEGIN_SRC emacs-lisp
@@ -322,7 +308,6 @@ Small misc tweaks and options
 #+END_SRC
 
 ** Zooming
-
 #+BEGIN_SRC emacs-lisp
 ;; zoom in/out
 (global-set-key (kbd "C-=") 'text-scale-increase)
@@ -332,13 +317,11 @@ Small misc tweaks and options
 #+END_SRC
   
 ** ESC stop all keybind thingies
-
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+END_SRC
 
 ** Commenting lines
-
 #+BEGIN_SRC emacs-lisp
 (use-package evil-nerd-commenter)
 (nvmap
@@ -346,14 +329,12 @@ Small misc tweaks and options
 #+END_SRC
 
 * Which key
-
 #+BEGIN_SRC emacs-lisp
 (use-package which-key)
 (which-key-mode)
 #+END_SRC
 
 * File management
-
 ** Neotree
 
 #+BEGIN_SRC emacs-lisp
@@ -388,13 +369,11 @@ Small misc tweaks and options
 #+END_SRC
 
 * GIT
-
 #+BEGIN_SRC emacs-lisp
 (use-package magit)
 #+END_SRC
 
 * Projectile
-
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :ensure t
@@ -403,9 +382,7 @@ Small misc tweaks and options
 #+END_SRC
 
 * Languages
-
 ** Completion
-
 #+BEGIN_SRC emacs-lisp
 (use-package corfu
   ;; Optional customizations
@@ -467,12 +444,17 @@ Small misc tweaks and options
  (add-hook 'rust-mode-hook 'eglot-ensure)
  (add-hook 'css-mode-hook 'eglot-ensure)
  (add-hook 'zig-mode-hook 'eglot-ensure)
+ (add-hook 'kotlin-mode-hook 'eglot-ensure)
+ (add-hook 'tuareg-mode-hook 'eglot-ensure)
 
  (use-package go-mode)
  (use-package rust-mode)
  (use-package haskell-mode)
  (use-package lua-mode)
  (use-package zig-mode)
+ (use-package kotlin-mode)
+;; for OCaml
+ (use-package tuareg)
 #+END_SRC
 
 ** Perl
