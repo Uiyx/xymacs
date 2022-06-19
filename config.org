@@ -95,7 +95,7 @@ Org-mode configuration.
 #+BEGIN_SRC emacs-lisp
 (use-package org-roam
 :custom
-(org-roam-directory "~/projects/notes")
+(org-roam-directory "~/projects/org/notes")
 :config
 (org-roam-setup))
 #+END_SRC
@@ -316,8 +316,8 @@ Small misc tweaks and options
 
 "c c" '(smart-compile :which-key "Smart compile")
 
-"x f" `(org-roam-node-find :which-key "Org-Roam find node"))
-"x i" `(org-roam-node-find :which-key "Org-Roam insert node"))
+"x f" `(org-roam-node-find :which-key "Org-Roam find node")
+"x i" `(org-roam-node-find :which-key "Org-Roam insert node")
 "x b" `(org-roam-buffer-toggle :which-key "Org-Roam buffer toggle node"))
 #+END_SRC
 
