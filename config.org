@@ -90,6 +90,15 @@ Org-mode configuration.
     org-edit-src-content-indentation 0)
 #+END_SRC
 
+** Org-Roam
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-roam
+:custom
+(org-roam-directory "~/projects/notes")
+:config
+(org-roam-setup))
+#+END_SRC
 * Looks
 Everything UI.
 
@@ -287,8 +296,7 @@ Small misc tweaks and options
 * Keybindings
 
 ** General
-General makes it easier to manager keybindings
-   
+
 #+BEGIN_SRC emacs-lisp
     (use-package general
   :config
@@ -305,9 +313,14 @@ General makes it easier to manager keybindings
 "q" '(delete-frame :which-key "Delete frame")
 ;; reload
 "r r" '((lambda () (interactive) (load-file "~/.emacs.d/init.el")) :which-key "Reload config")
-"c c" '(smart-compile :which-key "Smart compile."))
+
+"c c" '(smart-compile :which-key "Smart compile")
+
+"x f" `(org-roam-node-find :which-key "Org-Roam find node"))
+"x i" `(org-roam-node-find :which-key "Org-Roam insert node"))
+"x b" `(org-roam-buffer-toggle :which-key "Org-Roam buffer toggle node"))
 #+END_SRC
-   
+
 ** Zooming
 
 #+BEGIN_SRC emacs-lisp
